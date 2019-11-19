@@ -46,4 +46,8 @@ html lang="ja"
               li
                 = link_to t('commons.words.login'), :new_sessions
     #main-content.container
-      = yield
+      - if @current_user
+        = yield
+      - else
+        h1
+          = link_to t('commons.words.login'), :new_sessions
